@@ -20,3 +20,5 @@ Route::resource('shares', 'ShareController');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::get('/search', 'ShareController@search');

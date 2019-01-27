@@ -26,6 +26,13 @@
         <li class="nav-item active">
           <a class="nav-link" href="/admin">Администраторски панел</a>
         </li>
+        <form action="/search" method="get">
+          <div class="input-group">
+            <input type="search" name="search" class="form-control" placeholder="Провери винетка">
+            <span class="input-group-prepend">
+            <button type="submit" class="btn btn primary">Търси</button>
+          </div> 
+        </form>
       </ul>
 	  </div>
    </nav>
