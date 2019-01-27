@@ -41,15 +41,15 @@ class ShareController extends Controller
 
         $valid = $request->validate([
     		'mps_type'=> 'required',
-            'license_plate' => 'required|string',
+            'licence_plate' => 'string',
             'validity' => 'required|string',
             'mps_nationality' => 'required|string',
     	]);
 
-        $share = Share::find($id);
+        $share = new Share;
 
         $share->mps_type=$valid['mps_type'];
-        $share->license_plate=$valid['license_plate'];
+        $share->licence_plate=$valid['licence_plate'];
         $share->validity = $valid['validity'];
         $share->mps_nationality = $valid['mps_nationality'];
 
@@ -149,5 +149,12 @@ class ShareController extends Controller
        $share = Share::find($id);
        $share->delete();
        return redirect('/shares')->with('success', 'Винетната информация беше изтрита успешно!');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $vinetka = Share::where('licence_plate', 'like', "%$search%")->paginate(1);
+        return view('shares/index', ['shares' =>$vinetka]);
     }
 }
