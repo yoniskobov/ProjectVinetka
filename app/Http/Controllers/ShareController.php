@@ -56,36 +56,6 @@ class ShareController extends Controller
         $share->save();
 
         return redirect('/shares')->with('success', 'Вашата електронна винетка е поръчана успешно!');
-
-
-
-
-/*
-
-
-        try {
-
-        
-        $request->validate([
-            'mps_type'=>'required',
-            'licence_plate'=> 'required|string',
-            'validity' => 'required|string',
-            'mps_nationality' => 'required|string',
-          ]);
-          $share = new Share([
-            'mps_type' => $request->get('mps_type'),
-            'licence_plate'=> $request->get('licence_plate'),
-            'validity'=> $request->get('validity'),
-            'mps_nationality' => $request->get('mps_nationality')
-          ]);
-          $share->save();
-          return redirect('/shares')->with('success', 'Вашата електронна винетка е поръчана успешно!');
-          
-    }catch (Illuminate\Database\QueryException $e) {
-        return $e;
-    }
-
-    */
 }
 
     /**
