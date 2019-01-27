@@ -38,6 +38,34 @@ class ShareController extends Controller
      */
     public function store(Request $request)
     {
+
+        $valid = $request->validate([
+    		'mps_type'=> 'required',
+            'license_plate' => 'required|string',
+            'validity' => 'required|string',
+            'mps_nationality' => 'required|string',
+    	]);
+
+        $share = Share::find($id);
+
+        $share->mps_type=$valid['mps_type'];
+        $share->license_plate=$valid['license_plate'];
+        $share->validity = $valid['validity'];
+        $share->mps_nationality = $valid['mps_nationality'];
+
+        $share->save();
+
+        return redirect('/shares')->with('success', 'Вашата електронна винетка е поръчана успешно!');
+
+
+
+
+/*
+
+
+        try {
+
+        
         $request->validate([
             'mps_type'=>'required',
             'licence_plate'=> 'required|string',
@@ -52,7 +80,13 @@ class ShareController extends Controller
           ]);
           $share->save();
           return redirect('/shares')->with('success', 'Вашата електронна винетка е поръчана успешно!');
+          
+    }catch (Illuminate\Database\QueryException $e) {
+        return $e;
     }
+
+    */
+}
 
     /**
      * Display the specified resource.
