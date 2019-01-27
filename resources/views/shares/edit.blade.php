@@ -24,16 +24,19 @@
         @method('PATCH')
         @csrf
         <div class="form-group">
-          <label for="name">Share Name:</label>
-          <input type="text" class="form-control" name="share_name" value={{ $share->share_name }} />
+          <label for="type">Вид на превозното средство:</label>
+          <input type="text" class="form-control" name="mps_type" value={{ $share->mps_type }} />
+        <div class="form-group">
+          <label for="plate">Регистрационен номер:</label>
+          <input type="text" class="form-control" name="licence_plate" value={{ $share->licence_plate }} />
         </div>
         <div class="form-group">
-          <label for="price">Share Price :</label>
-          <input type="text" class="form-control" name="share_price" value={{ $share->share_price }} />
+          <label for="val">Период на валидност:</label>
+          <input type="text" class="form-control" name="validity" value={{ $share->validity }} />
         </div>
         <div class="form-group">
-          <label for="quantity">Share Quantity:</label>
-          <input type="text" class="form-control" name="share_qty" value={{ $share->share_qty }} />
+          <label for="nationality">Националност на превозното средство:</label>
+          <input type="text" class="form-control" name="mps_nationality" value={{ $share->mps_nacionality }} />
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
       </form>

@@ -16,9 +16,9 @@
     <thead>
         <tr>
           <td>ID</td>
-          <td>Stock Name</td>
-          <td>Stock Price</td>
-          <td>Stock Quantity</td>
+          <td>Регистрационен номер</td>
+          <td>Период на валидност</td>
+          <td>Националност на превозното средство</td>
           <td colspan="2">Action</td>
         </tr>
     </thead>
@@ -26,9 +26,10 @@
         @foreach($shares as $share)
         <tr>
             <td>{{$share->id}}</td>
-            <td>{{$share->share_name}}</td>
-            <td>{{$share->share_price}}</td>
-            <td>{{$share->share_qty}}</td>
+            <td>{{$share->mps_type}}</td>
+            <td>{{$share->licence_plate}}</td>
+            <td>{{$share->validity}}</td>
+            <td>{{$share->mps_nationality}}</td>
             <td><a href="{{ route('shares.edit',$share->id)}}" class="btn btn-primary">Edit</a></td>
             <td>
                 <form action="{{ route('shares.destroy', $share->id)}}" method="post">

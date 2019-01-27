@@ -15,9 +15,10 @@ class CreateSharesTable extends Migration
     {
         Schema::create('shares', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('share_name');
-            $table->integer('share_price');
-            $table->integer('share_qty');
+            $table->string('mps_type');
+            $table->string('licence_plate');
+            $table->string('validity');
+            $table->string('mps_nationality');
             $table->timestamps();
         });
     }

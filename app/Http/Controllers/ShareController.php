@@ -39,17 +39,19 @@ class ShareController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'share_name'=>'required',
-            'share_price'=> 'required|integer',
-            'share_qty' => 'required|integer'
+            'mps_type'=>'required',
+            'licence_plate'=> 'required|string',
+            'validity' => 'required|string',
+            'mps_nationality' => 'required|string',
           ]);
           $share = new Share([
-            'share_name' => $request->get('share_name'),
-            'share_price'=> $request->get('share_price'),
-            'share_qty'=> $request->get('share_qty')
+            'mps_type' => $request->get('mps_type'),
+            'licence_plate'=> $request->get('licence_plate'),
+            'validity'=> $request->get('validity'),
+            'mps_nationality' => $request->get('mps_nationality')
           ]);
           $share->save();
-          return redirect('/shares')->with('success', 'Stock has been added');
+          return redirect('/shares')->with('success', 'Вашата електронна винетка е поръчана успешно!');
     }
 
     /**
@@ -86,18 +88,20 @@ class ShareController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'share_name'=>'required',
-            'share_price'=> 'required|integer',
-            'share_qty' => 'required|integer'
+            'mps_type'=>'required',
+            'licence_plate'=> 'required|string',
+            'validity' => 'required|string',
+            'mps_nationality' => 'required|string'
           ]);
     
           $share = Share::find($id);
-          $share->share_name = $request->get('share_name');
-          $share->share_price = $request->get('share_price');
-          $share->share_qty = $request->get('share_qty');
+          $share->mps_type = $request->get('mps_type');
+          $share->licence_plate = $request->get('licence_plate');
+          $share->validity = $request->get('validity');
+          $share->mps_nacionality = $request->get('mps_nationality');
           $share->save();
     
-          return redirect('/shares')->with('success', 'Stock has been updated');
+          return redirect('/shares')->with('success', 'Винетната информация е ъпдейтната успешно!');
     }
 
     /**
@@ -110,6 +114,6 @@ class ShareController extends Controller
     {
        $share = Share::find($id);
        $share->delete();
-       return redirect('/shares')->with('success', 'Stock has been deleted successfully');
+       return redirect('/shares')->with('success', 'Винетната информация беше изтрита успешно!');
     }
 }

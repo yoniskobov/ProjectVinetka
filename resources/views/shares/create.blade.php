@@ -21,18 +21,21 @@
       </div><br />
     @endif
       <form method="post" action="{{ route('shares.store') }}">
-          <div class="form-group">
+      <div class="form-group">
               @csrf
-              <label for="name">Share Name:</label>
-              <input type="text" class="form-control" name="share_name"/>
+              <label for="type">Вид на превозното средство:</label>
+              <input type="text" class="form-control" name="mps_type"/>
+          <div class="form-group">
+              <label for="plate">Регистрационен номер:</label>
+              <input type="text" class="form-control" name="licence_plate"/>
           </div>
           <div class="form-group">
-              <label for="price">Share Price :</label>
-              <input type="text" class="form-control" name="share_price"/>
+              <label for="val">Период на валидност:</label>
+              <input type="text" class="form-control" name="validity"/>
           </div>
           <div class="form-group">
-              <label for="quantity">Share Quantity:</label>
-              <input type="text" class="form-control" name="share_qty"/>
+              <label for="natinality">Националност на превозното средство:</label>
+              <input type="text" class="form-control" name="mps_nationality"/>
           </div>
           <button type="submit" class="btn btn-primary">Add</button>
       </form>
